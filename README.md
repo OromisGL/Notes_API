@@ -26,7 +26,7 @@ Das Projekt wird von dem Autor selbst durchgeführt und soll innerhalb von 2 Woc
 ## 3.	Architektur und Design
 
 API Struktur
-'''text
+```plaintext
 Notes/
 │
 ── app/
