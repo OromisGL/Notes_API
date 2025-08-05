@@ -42,3 +42,8 @@ Notes/
 │       └── auth.py           # Beispiel-Router für User-Endpunkte
 ── auth_utils.py
 ── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
+```
+
+Für die Authentifizierung wird das JWT Protokoll verwendet. Genauer das Python Modul ```plaintext python-jose[cryptography] ````.
+Für das Hashing der Passwörter wird die passlib libary verwendet
+
