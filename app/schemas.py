@@ -1,18 +1,19 @@
 from pydantic import BaseModel
 from datetime import datetime
+from typing import List, Annotated
 
 # User
 class UserCreate(BaseModel):
     name: str
     email: str
-    password_hash: str
+    password: str
 
 class UserOut(BaseModel):
     id: int
     name: str
     email: str
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserLogin(BaseModel):
     email: str
@@ -26,12 +27,12 @@ class CategoryOut(BaseModel):
     id: int
     description: str
     class Config:
-        orm_mode: True
+        from_attributes = True
 
 # Notes
 class NoteCreate(BaseModel):
     text: str
-    category: int
+    category: str | None = None
 
 class NotesOut(BaseModel):
     id: int
@@ -40,7 +41,7 @@ class NotesOut(BaseModel):
     created_by: int
     category: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Authentifiezierung benötigt response durch Tokens
 class Token(BaseModel):

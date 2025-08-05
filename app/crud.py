@@ -1,13 +1,14 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
-from auth_utils import hash_password
-from datetime import datetime
+from app import models, schemas
+from app.auth_utils import hash_password
+from datetime import datetime, timezone
+
 def create_user(db: Session, user: schemas.UserCreate):
     hashed_pwd = hash_password(user.password)
     db_user = models.User(
         name=user.name, 
         email=user.email,
-        hashed_password=hashed_pwd
+        password=hashed_pwd
         )
     db.add(db_user)
     db.commit()
@@ -16,6 +17,7 @@ def create_user(db: Session, user: schemas.UserCreate):
 
 def get_users_by_email(db: Session, email: str):
     return db.query(models.User).filter(models.User.email == email).first()
+
 
 def get_user(db: Session):
     return db.query(models.User).all()
@@ -33,16 +35,24 @@ def get_categories(db: Session):
 def get_category(db: Session, category_id: int):
     return db.query(models.Category).filter(models.Category.id == category_id).first()
 
-def create_notes(db: Session, note: schemas.NoteCreate):
+def create_category(db: Session, description: str):
+    category_db = models.Category(description=description)
+    db.add(category_db)
+    db.commit()
+    db.refresh(category_db)
+    return category_db
+
+def create_notes(db: Session, text: str, user_id: int, category: str):
     db_note = models.Notes(
-        text=note.text,
-        created=datetime.now(datetime.timezone.utc),
-        created_by=note.created_by,
-        category=note.category
-    )
+        text=text, 
+        created_by=user_id, 
+        category=category,
+        created=datetime.now(timezone.utc)
+        )
+    
     db.add(db_note)
     db.commit()
-    db.refresh()
+    db.refresh(db_note)
     return db_note
 
 def get_notes(db: Session):

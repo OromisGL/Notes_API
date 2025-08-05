@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, TIMESTAMP
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text
+from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from .database import Base
 
@@ -23,8 +24,8 @@ class Notes(Base):
     __tablename__ = "notes"
     
     id = Column(Integer, primary_key=True, index=True)
-    text = Column(String,index=True)
-    created = Column(TIMESTAMP, index=True)
+    text = Column(Text,index=True)
+    created = Column(DateTime, server_default=func.now(), index=True)
     created_by = Column(Integer, ForeignKey("users.id"))
     category = Column(Integer, ForeignKey("category.id"))
     user = relationship("User", back_populates="notes")
