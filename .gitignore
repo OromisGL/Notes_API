@@ -2,4 +2,3 @@ venv
 private.pem
 public.pem
 __pycache__/
-*.py[cod]

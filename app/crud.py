@@ -22,12 +22,12 @@ def get_users_by_email(db: Session, email: str):
 def get_user(db: Session):
     return db.query(models.User).all()
 
-def create_category(db: Session, category: schemas.CartegoryCreate):
-    db_cat = models.Category(description=category.description)
-    db.app(db_cat)
-    db.commit()
-    db.refresh()
-    return db_cat
+# def create_category(db: Session, category: schemas.CartegoryCreate):
+#     db_cat = models.Category(description=category.description)
+#     db.app(db_cat)
+#     db.commit()
+#     db.refresh()
+#     return db_cat
 
 def get_categories(db: Session):
     return db.query(models.Category).all()
@@ -36,6 +36,11 @@ def get_category(db: Session, category_id: int):
     return db.query(models.Category).filter(models.Category.id == category_id).first()
 
 def create_category(db: Session, description: str):
+    category_obj = db.query(models.Category).filter(models.Category.description == description).first()
+    
+    if category_obj:
+        return category_obj
+    
     category_db = models.Category(description=description)
     db.add(category_db)
     db.commit()
@@ -55,7 +60,7 @@ def create_notes(db: Session, text: str, user_id: int, category: str):
     db.refresh(db_note)
     return db_note
 
-def get_notes(db: Session):
+def get_notes(db: Session, user_id: int):
     return db.query(models.Notes).all()
 
 def get_notes_by_user(db: Session, user_id: int):
@@ -71,3 +76,8 @@ def get_notes_by_category(db: Session, user_id: int, category_id: int):
             models.Notes.category == category_id).all()
         )
 
+def get_category_id_by_desc(db: Session, category_desc: str):
+    object = db.query(models.Category).filter(models.Category.description == category_desc).first()
+    if object:
+        return object.id
+    return 6
