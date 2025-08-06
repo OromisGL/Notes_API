@@ -48,8 +48,13 @@ Für die Authentifizierung wird das JWT Protokoll verwendet. Aus der python liba
 Hier wird auf Asymetrische verschlüsselung gesetzt um die Authetifizierung mit der API möglichst sicher zu gestalten, da es sich 
 hier um möglicherweise sensible Daten handeln könnte. Um das Schlüsselpaar zu erzeugen wurde openssl verwendet mit dem "RS256" Hashing Algorythmus.
 Falls das Projekt Öffentlich gemacht wird muss die Architektur dh. die Speicherung der Schlüssel Angepasst werden. 
+```plaintext
+openssl genrsa -out private.pem 2048
+openssl rsa -in private.pem -pubout -out public.pem
+```
 
 Für das Hashing der Passwörter wird die passlib libary verwendet. [Doku passlib](https://passlib.readthedocs.io/en/stable/narr/context-tutorial.html#context-basic-example)
+
 Zur Validierung der eingegebenen Daten werden schemas mit Pydantic BaseModel erstellt, um die richtigen 
 Datentypen und die Übermittelte Struktur zu gewährleisten. [BaseModel Doku](https://docs.pydantic.dev/latest/concepts/models/)
 
