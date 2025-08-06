@@ -29,19 +29,22 @@ API Struktur
 ```plaintext
 Notes/
 │
-── app/
+├── app/
 │   ├── __init__.py
+│   ├── auth_util.py           # Funktionen zur Validierung und Authentifizierung
 │   ├── main.py                # Einstiegspunkt für FastAPI
 │   ├── config.py              # Konfiguration (Datenbank-URL etc.)
 │   ├── database.py            # Datenbankverbindung und Session-Handling
 │   ├── models.py              # SQLAlchemy-Modelle (Tabellen-Definitionen)
 │   ├── schemas.py             # Pydantic-Schemas (Request/Response-Validierung)
 │   ├── crud.py                # CRUD-Operationen (Funktionen für DB-Zugriffe)
+│   ├── TokenManager.py        # Klasse zur Clientseitigen Validierung des Public Keys
 │   └── routers/               # API-Routen modular organisiert
 │       └── users.py           # Beispiel-Router für User-Endpunkte
-│       └── auth.py           # Beispiel-Router für User-Endpunkte
-── auth_utils.py
-── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
+│       └── auth.py            # Beispiel-Router für User-Endpunkte
+├── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
+├── docker-compose.yaml        # Definition der Docker services
+├── Dokerfile                  # Commands für den Docker container 
 ```
 
 Für die Authentifizierung wird das JWT Protokoll verwendet. Aus der python libary jose, die alle Algorythmen zur verfügung stellt.
