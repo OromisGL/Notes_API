@@ -44,6 +44,18 @@ Notes/
 ── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
 ```
 
-Für die Authentifizierung wird das JWT Protokoll verwendet. Genauer das Python Modul ```plaintext python-jose[cryptography] ````.
-Für das Hashing der Passwörter wird die passlib libary verwendet
+Für die Authentifizierung wird das JWT Protokoll verwendet. Aus der python libary jose, die alle Algorythmen zur verfügung stellt.
+Hier wird auf Asymetrische verschlüsselung gesetzt um die Authetifizierung mit der API möglichst sicher zu gestalten, da es sich 
+hier um möglicherweise sensible Daten handeln könnte. Um das Schlüsselpaar zu erzeugen wurde openssl verwendet mit dem "RS256" Hashing Algorythmus.
+Falls das Projekt Öffentlich gemacht wird muss die Architektur dh. die Speicherung der Schlüssel Angepasst werden. 
+
+Für das Hashing der Passwörter wird die passlib libary verwendet. [Doku passlib](https://passlib.readthedocs.io/en/stable/narr/context-tutorial.html#context-basic-example)
+Zur Validierung der eingegebenen Daten werden schemas mit Pydantic BaseModel erstellt, um die richtigen 
+Datentypen und die Übermittelte Struktur zu gewährleisten. [BaseModel Doku](https://docs.pydantic.dev/latest/concepts/models/)
+
+Das Relationale Modell wird mit sqlAlchemy Erstellt. 
+Verwendung finden hier funktion declarative_base(), die in der deklaration der Klassen für die Tabellen 
+verwendet wird und "mapped" die einzelnen klassen zusammen zu einem Datenbank Modell. 
+Die Verwendung von declarative_base() ermöglicht die verwendung des Attributes "__tablename__" und der Klasse Column(). Zudem kann man Relationen erstellen mit relationship die sich auf einzelne Datensätze beziehen. [Doku SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/basic_use.html)
+
 
