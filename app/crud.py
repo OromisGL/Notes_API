@@ -47,8 +47,9 @@ def create_category(db: Session, description: str):
     db.refresh(category_db)
     return category_db
 
-def create_notes(db: Session, text: str, user_id: int, category: str):
+def create_notes(db: Session, title: str, text: str, user_id: int, category: str):
     db_note = models.Notes(
+        title=title,
         text=text, 
         created_by=user_id, 
         category=category,
@@ -80,4 +81,4 @@ def get_category_id_by_desc(db: Session, category_desc: str):
     object = db.query(models.Category).filter(models.Category.description == category_desc).first()
     if object:
         return object.id
-    return 6
+    return 1

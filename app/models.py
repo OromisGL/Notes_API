@@ -15,7 +15,6 @@ class User(Base):
 
 class Category(Base):
     __tablename__ = "category"
-    
     id = Column(Integer, primary_key=True, index=True)
     description = Column(String, index=True)
     notes = relationship("Notes", back_populates="category_rel")
@@ -24,6 +23,7 @@ class Notes(Base):
     __tablename__ = "notes"
     
     id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
     text = Column(Text,index=True)
     created = Column(DateTime, server_default=func.now(), index=True)
     created_by = Column(Integer, ForeignKey("users.id"))

@@ -31,11 +31,13 @@ class CategoryOut(BaseModel):
 
 # Notes
 class NoteCreate(BaseModel):
+    title: str
     text: str
     category: str | None = None
 
 class NotesOut(BaseModel):
     id: int
+    title: str
     text: str
     created: datetime
     created_by: int
