@@ -1,21 +1,31 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, Response, HTTPException
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
 from app import schemas, crud, database
 from app import auth_utils
+from pathlib import Path
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
-# Login Endpoint 
+PUBLIC_KEY_PATH = Path(__file__).resolve().parent.parent / "public.pem"
+
+# Public Key Endpoint
+
+@router.get("/public_key", summary="Liefert den Public Key für die Respons Validation des Clients")
+def get_key():
+    key = PUBLIC_KEY_PATH.read_text()
+    return Response(content=key, media_type="application/x-pem-file")
+
+# Login/register Endpoint 
 
 @router.post("/register", response_model=schemas.UserOut)
 def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
     # Pydantic validiert hier automatisch: name, email, password sind Pflichtfelder
     existing_user = crud.get_users_by_email(db, user.email)
     if existing_user:
-        return RedirectResponse(url="/login", status_code=303)
-    
+        raise HTTPException(status_code=409, detail="User already exists.")
+
     return crud.create_user(db=db, user=user)
 
 @router.post("/login", response_model=schemas.Token)

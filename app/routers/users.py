@@ -10,7 +10,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 def list_users(db: Session = Depends(database.get_db)):
     return crud.get_user(db)
 
-@router.post("/post/notes", response_model=schemas.NotesOut)
+@router.post("/notes/post", response_model=schemas.NotesOut)
 def create_note(
         note: schemas.NoteCreate, 
         db: Session = Depends(database.get_db),
@@ -36,7 +36,7 @@ def create_note(
     )
     return note_obj
 
-@router.get("/get/notes", response_model=List[schemas.NotesOut])
+@router.get("/notes", response_model=List[schemas.NotesOut])
 def get_note_from_user(
         db: Session = Depends(database.get_db),
         current_user: schemas.UserOut = Depends(auth_utils.get_current_user)):

@@ -15,7 +15,6 @@ class TokenManager:
         self.password = password
         self.token = None
         self.expiers_at = 0
-        
     
     def authenticate(self):
         # Fetching von email und Passwort
@@ -31,7 +30,7 @@ class TokenManager:
         self.token = data["access_token"]
         # Verfalsszeit Festlegen
         self.expiers_at = time.time() + data.get("expires_in", 3600)
-        
+    
     def get_token(self):
         if not self.token or time.time() > self.expiers_at - 3000:
             self.authenticate()

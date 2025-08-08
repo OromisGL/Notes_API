@@ -81,4 +81,4 @@ def get_category_id_by_desc(db: Session, category_desc: str):
     object = db.query(models.Category).filter(models.Category.description == category_desc).first()
     if object:
         return object.id
-    return 1
+    return 0
