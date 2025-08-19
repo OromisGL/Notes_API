@@ -25,7 +25,7 @@ def create_note(
         for i in range(2):
             temp += text[i]
             temp += ' '
-        title = temp
+        title = temp.strip()
     
     note_obj = crud.create_notes(
         db,
@@ -42,7 +42,6 @@ def get_note_from_user(
         current_user: schemas.UserOut = Depends(auth_utils.get_current_user)):
     
     return crud.get_notes_by_user(db, current_user.id)
-
 
 @router.get("/notes/{category}", response_model=List[schemas.NotesOut]) 
 def get_notes_category(

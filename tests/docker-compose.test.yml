@@ -1,0 +1,10 @@
+services:
+  db:
+    environment:
+      POSTGRES_DB: notes          # Standard-DB zum Start
+    volumes:
+      - ./docker/init-testdb:/docker-entrypoint-initdb.d  # erstellt notes_test
+
+  web:
+    environment:
+      DATABASE_URL: postgresql+psycopg2://user:password@db:5432/notes_test

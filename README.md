@@ -67,3 +67,4 @@ verwendet wird und "mapped" die einzelnen klassen zusammen zu einem Datenbank Mo
 Die Verwendung von declarative_base() ermöglicht die verwendung des Attributes "__tablename__" und der Klasse Column(). Zudem kann man Relationen erstellen mit relationship die sich auf einzelne Datensätze beziehen. [Doku SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/basic_use.html)
 
 
+Die Gerstaltung der 
