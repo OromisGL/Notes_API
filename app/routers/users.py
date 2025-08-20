@@ -19,12 +19,15 @@ def create_note(
     
     title = note.title
     
-    if title == "string":
+    if title == "string" or title == "":
         temp = ''
         text = note.text.split()
-        for i in range(2):
-            temp += text[i]
-            temp += ' '
+        if len(text) >= 2:
+            for i in range(2):
+                temp += text[i]
+                temp += ' '
+        else:
+            temp += text[0]
         title = temp.strip()
     
     note_obj = crud.create_notes(
@@ -35,6 +38,10 @@ def create_note(
         category_obj.id,
     )
     return note_obj
+
+@router.delete("/notes/delete/{id}", status_code=204, name="delete_note")
+def delete_note(id: int, db: Session = Depends(database.get_db)):
+    return crud.delete_note(db, id)
 
 @router.get("/notes", response_model=List[schemas.NotesOut])
 def get_note_from_user(
@@ -52,6 +59,10 @@ def get_notes_category(
     category_id = crud.get_category_id_by_desc(db, category)
     
     if category_id is None:
-        raise HTTPException(status_code=404, detail="Kategorie nicht gefunden")
+        return []
     
     return crud.get_notes_by_category(db, current_user.id, category_id)
+
+@router.get("/category/", response_model=List[schemas.CategoryOut])
+def get_categorys(db: Session = Depends(database.get_db), current_user: schemas.UserOut = Depends(auth_utils.get_current_user)):
+    return crud.get_all_category(db, current_user)

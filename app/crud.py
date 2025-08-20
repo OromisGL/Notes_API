@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 from app import models, schemas
 from app.auth_utils import hash_password
 from datetime import datetime, timezone
@@ -11,23 +12,20 @@ def create_user(db: Session, user: schemas.UserCreate):
         password=hashed_pwd
         )
     db.add(db_user)
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError as e:
+        db.rollback()
+        if "ix_users_email" in str(e):
+            return False, "error, email already exists"
     db.refresh(db_user)
     return db_user
 
 def get_users_by_email(db: Session, email: str):
     return db.query(models.User).filter(models.User.email == email).first()
 
-
 def get_user(db: Session):
     return db.query(models.User).all()
-
-# def create_category(db: Session, category: schemas.CartegoryCreate):
-#     db_cat = models.Category(description=category.description)
-#     db.app(db_cat)
-#     db.commit()
-#     db.refresh()
-#     return db_cat
 
 def get_categories(db: Session):
     return db.query(models.Category).all()
@@ -61,6 +59,10 @@ def create_notes(db: Session, title: str, text: str, user_id: int, category: str
     db.refresh(db_note)
     return db_note
 
+def delete_note(db: Session, id: int):
+    db.query(models.Notes).filter(models.Notes.id == id).delete(synchronize_session=False)
+    db.commit()
+
 def get_notes(db: Session, user_id: int):
     return db.query(models.Notes).all()
 
@@ -82,3 +84,8 @@ def get_category_id_by_desc(db: Session, category_desc: str):
     if object:
         return object.id
     return 0
+
+def get_all_category(db: Session, user_id: int):
+    return db.query(models.Category).join(
+        models.Category.notes).filter(
+        models.Notes.created_by == user_id).distinct()
