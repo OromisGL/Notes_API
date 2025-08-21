@@ -17,7 +17,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     except IntegrityError as e:
         db.rollback()
         if "ix_users_email" in str(e):
-            return False, "error, email already exists"
+            return False
     db.refresh(db_user)
     return db_user
 
@@ -63,6 +63,10 @@ def delete_note(db: Session, id: int):
     db.query(models.Notes).filter(models.Notes.id == id).delete(synchronize_session=False)
     db.commit()
 
+def edit_note(db: Session, id: int, title: str, text: str, category: str):
+    db.query(models.Notes).filter(models.Notes.id == id).update({"title": title, "text": text, "category": category})
+    db.commit()
+
 def get_notes(db: Session, user_id: int):
     return db.query(models.Notes).all()
 
@@ -88,4 +92,4 @@ def get_category_id_by_desc(db: Session, category_desc: str):
 def get_all_category(db: Session, user_id: int):
     return db.query(models.Category).join(
         models.Category.notes).filter(
-        models.Notes.created_by == user_id).distinct()
+        models.Notes.created_by == user_id).distinct().all()

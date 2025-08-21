@@ -33,8 +33,8 @@ def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_d
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
     user = crud.get_users_by_email(db, form_data.username)
     
-    if not user or not auth_utils.verify_password(form_data.password, user.password):
-        return RedirectResponse(url="/", status_code=303)
+    if user == None or auth_utils.verify_password(form_data.password, user.password) == False:
+        raise HTTPException(status_code=401, detail="Login data is not correct.")
     
     access_token = auth_utils.create_access_token({"sub": form_data.username})
     
