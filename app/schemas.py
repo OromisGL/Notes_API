@@ -23,11 +23,6 @@ class CartegoryCreate(BaseModel):
     description: str
 
 class CategoryOut(BaseModel):
-    """_summary_
-
-    Args:
-        BaseModel (_type_): _description_
-    """
     id: int
     description: str
     class Config:
