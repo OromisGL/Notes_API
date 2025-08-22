@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 from app.routers import users, auth
 from app.database import Base, engine
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import RedirectResponse
-from sqlalchemy.orm import Session
-from app import crud, schemas, database
+from fastapi import APIRouter
 
 app = FastAPI()
 router = APIRouter()

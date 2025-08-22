@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 from sqlalchemy.exc import IntegrityError
 from app import models, schemas
 from app.auth_utils import hash_password
@@ -34,7 +34,8 @@ def get_category(db: Session, category_id: int):
     return db.query(models.Category).filter(models.Category.id == category_id).first()
 
 def create_category(db: Session, description: str):
-    category_obj = db.query(models.Category).filter(models.Category.description == description).first()
+    category_obj = db.query(models.Category)\
+                        .filter(models.Category.description == description).first()
     
     if category_obj:
         return category_obj
@@ -45,12 +46,21 @@ def create_category(db: Session, description: str):
     db.refresh(category_db)
     return category_db
 
-def create_notes(db: Session, title: str, text: str, user_id: int, category: str):
+def create_notes(
+            db: Session, 
+            title: str, 
+            text: str, 
+            user_id: int, 
+            category: str
+        ):
+    
+    category_obj = create_category(db, category)
+    
     db_note = models.Notes(
         title=title,
         text=text, 
         created_by=user_id, 
-        category=category,
+        category=category_obj.id,
         created=datetime.now(timezone.utc)
         )
     
@@ -64,32 +74,44 @@ def delete_note(db: Session, id: int):
     db.commit()
 
 def edit_note(db: Session, id: int, title: str, text: str, category: str):
-    db.query(models.Notes).filter(models.Notes.id == id).update({"title": title, "text": text, "category": category})
+    category_rel = get_category_by_desc(db, category)
+    print(category_rel)
+    db.query(models.Notes)\
+            .filter(models.Notes.id == id)\
+                .update({"title": title, "text": text, "category": category_rel.id})
     db.commit()
 
-def get_notes(db: Session, user_id: int):
+def get_notes(db: Session):
     return db.query(models.Notes).all()
 
 def get_notes_by_user(db: Session, user_id: int):
-    return db.query(models.Notes).filter(models.Notes.created_by == user_id).all()
+    return db.query(models.Notes)\
+                .options(selectinload(models.Notes.category_rel))\
+                    .filter(models.Notes.created_by == user_id).all()
 
 def get_notes_by_id(db: Session, note_id: int):
     return db.query(models.Notes).filter(models.Notes.id == note_id).first()
 
-def get_notes_by_category(db: Session, user_id: int, category_id: int):
+def get_notes_by_category(db: Session, user_id: int, category: schemas.CategoryOut):
     return (
         db.query(models.Notes).filter(
             models.Notes.created_by == user_id,
-            models.Notes.category == category_id).all()
+            models.Notes.category["id"] == category.id).all()
         )
 
-def get_category_id_by_desc(db: Session, category_desc: str):
-    object = db.query(models.Category).filter(models.Category.description == category_desc).first()
+def get_category_by_desc(db: Session, category_desc: str):
+    object = db.query(models.Category)\
+        .filter(models.Category.description == category_desc).first()
     if object:
-        return object.id
-    return 0
+        return object
+    new = models.Category(description=category_desc)
+    db.add(new)
+    db.commit()
+    db.refresh(new)
+    return new
 
 def get_all_category(db: Session, user_id: int):
-    return db.query(models.Category).join(
-        models.Category.notes).filter(
-        models.Notes.created_by == user_id).distinct().all()
+    return db.query(models.Category)\
+        .join(models.Category.notes)\
+            .filter(models.Notes.created_by == user_id)\
+                .distinct().all()

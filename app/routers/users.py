@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app import crud, schemas, database, auth_utils
-from typing import Optional, List
+from typing import List
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -15,7 +15,6 @@ def create_note(
         note: schemas.NoteCreate, 
         db: Session = Depends(database.get_db),
         current_user: schemas.UserOut = Depends(auth_utils.get_current_user)):
-    category_obj = crud.create_category(db, note.category)
     
     title = note.title
     
@@ -35,7 +34,7 @@ def create_note(
         title,
         note.text,
         current_user.id,
-        category_obj.id,
+        note.category,
     )
     return note_obj
 
@@ -59,21 +58,22 @@ def get_notes_category(
         db: Session = Depends(database.get_db),
         current_user: schemas.UserOut = Depends(auth_utils.get_current_user)):
     
-    category_id = crud.get_category_id_by_desc(db, category_desc)
+    category_id = crud.get_category_by_desc(db, category_desc)
     
     if category_id is None:
         return []
-    
     return crud.get_notes_by_category(db, current_user.id, category_id)
 
 @router.delete("/notes/delete/{id}", status_code=204, name="delete_note")
 def delete_note(id: int, db: Session = Depends(database.get_db)):
     return crud.delete_note(db, id)
 
-@router.post("/notes/update/{id}", status_code=200, name="update_note")
-def update_note(id: int, data: schemas.NoteCreate, db: Session = Depends(database.get_db)):
-    crud.edit_note(db, id, data.title, data.text, data.category)
-    return 
+@router.post("/notes/update/{note_id}", status_code=200, name="update_note")
+def update_note(
+        note_id: int, 
+        note: schemas.NoteCreate, 
+        db: Session = Depends(database.get_db)):
+    crud.edit_note(db, note_id, note.title, note.text, note.category)
 
 @router.get("/notes/{id}",response_model=schemas.NotesOut, status_code=200, name="get_note_id")
 def get_note_by_id(id: int, db: Session = Depends(database.get_db)):

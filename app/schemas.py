@@ -1,6 +1,5 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, Field
 from datetime import datetime
-from typing import List, Annotated
 
 # User
 class UserCreate(BaseModel):
@@ -24,6 +23,11 @@ class CartegoryCreate(BaseModel):
     description: str
 
 class CategoryOut(BaseModel):
+    """_summary_
+
+    Args:
+        BaseModel (_type_): _description_
+    """
     id: int
     description: str
     class Config:
@@ -33,7 +37,7 @@ class CategoryOut(BaseModel):
 class NoteCreate(BaseModel):
     title: str
     text: str
-    category: str | None = None
+    category: str
 
 class NotesOut(BaseModel):
     id: int
@@ -41,7 +45,7 @@ class NotesOut(BaseModel):
     text: str
     created: datetime
     created_by: int
-    category: int
+    category: CategoryOut | None = Field(None, alias="category_rel")
     class Config:
         from_attributes = True
 

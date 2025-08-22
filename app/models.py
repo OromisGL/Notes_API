@@ -30,4 +30,3 @@ class Notes(Base):
     category = Column(Integer, ForeignKey("category.id"))
     user = relationship("User", back_populates="notes")
     category_rel = relationship("Category", back_populates="notes")
-
