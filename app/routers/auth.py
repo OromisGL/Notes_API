@@ -6,6 +6,10 @@ from app import auth_utils
 from pathlib import Path
 
 
+"""
+    Router für die Authentifizierung.
+"""
+
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 PUBLIC_KEY_PATH = Path(__file__).resolve().parent.parent / "public.pem"

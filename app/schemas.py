@@ -1,6 +1,12 @@
+
 from pydantic import BaseModel, Field
 from datetime import datetime
 
+"""
+    Hier werden schemas Definiert. Sie sind wie ein eigener Datentyp um die Datenübermittelung zu 
+    vereinheitlichen und übersichtlicher zu machen. 
+
+"""
 # User
 class UserCreate(BaseModel):
     name: str

@@ -3,6 +3,10 @@ from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from app.database import Base
 
+"""
+    Hier wird das Relationale Datenbankmodell erstellt.
+"""
+
 class User(Base):
     __tablename__ = "users"
     

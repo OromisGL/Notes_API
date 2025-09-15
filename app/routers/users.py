@@ -3,6 +3,11 @@ from sqlalchemy.orm import Session
 from app import crud, schemas, database, auth_utils
 from typing import List
 
+
+"""
+    Routers für die Datenbankoperationen.
+"""
+
 router = APIRouter(prefix="/users", tags=["Users"])
 
 # Bei allen get anfragen List[] bnutzen 

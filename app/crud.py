@@ -4,6 +4,11 @@ from app import models, schemas
 from app.auth_utils import hash_password
 from datetime import datetime, timezone
 
+"""
+    Alle Datenbank Operationen werden in den Folgenden Funktionen abgebildet.
+"""
+
+
 def create_user(db: Session, user: schemas.UserCreate):
     hashed_pwd = hash_password(user.password)
     db_user = models.User(
