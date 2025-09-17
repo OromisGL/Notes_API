@@ -38,9 +38,11 @@ Notes/
 │   ├── models.py              # SQLAlchemy-Modelle (Tabellen-Definitionen)
 │   ├── schemas.py             # Pydantic-Schemas (Request/Response-Validierung)
 │   ├── crud.py                # CRUD-Operationen (Funktionen für DB-Zugriffe)
-│   ├── TokenManager.py        # Klasse zur Clientseitigen Validierung des Public Keys
+│   ├── private.pem            # Privater Hash 
+│   ├── public.pem             # Öffentlicher Hash
 │   └── routers/               # API-Routen modular organisiert
-│       └── users.py           # Beispiel-Router für User-Endpunkte
+│       ├── __init__.py
+│       ├── users.py           # Beispiel-Router für User-Endpunkte
 │       └── auth.py            # Beispiel-Router für User-Endpunkte
 ├── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
 ├── docker-compose.yaml        # Definition der Docker services
