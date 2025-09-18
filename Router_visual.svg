@@ -1,0 +1,235 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1109pt" height="559pt" viewBox="0.00 0.00 1108.94 559">
+<g id="graph0" class="graph" transform="translate(36,523) scale(1)" data-name="world">
+
+<polygon fill="white" stroke="none" points="-36,36 -36,-523 1072.94,-523 1072.94,36 -36,36"/>
+<g id="clust1" class="cluster" data-name="cluster_tags">
+
+<path fill="none" stroke="#000000" d="M20,-145C20,-145 123.09,-145 123.09,-145 129.09,-145 135.09,-151 135.09,-157 135.09,-157 135.09,-274 135.09,-274 135.09,-280 129.09,-286 123.09,-286 123.09,-286 20,-286 20,-286 14,-286 8,-280 8,-274 8,-274 8,-157 8,-157 8,-151 14,-145 20,-145"/>
+<text text-anchor="middle" x="35.44" y="-264" font-family="Helvetica,Arial,sans-serif" font-size="20.00">Tags</text>
+</g>
+<g id="clust2" class="cluster" data-name="cluster_router">
+
+<path fill="none" stroke="#000000" d="M241.09,-8C241.09,-8 377.94,-8 377.94,-8 383.94,-8 389.94,-14 389.94,-20 389.94,-20 389.94,-467 389.94,-467 389.94,-473 383.94,-479 377.94,-479 377.94,-479 241.09,-479 241.09,-479 235.09,-479 229.09,-473 229.09,-467 229.09,-467 229.09,-20 229.09,-20 229.09,-14 235.09,-8 241.09,-8"/>
+<text text-anchor="middle" x="279.58" y="-457" font-family="Helvetica,Arial,sans-serif" font-size="20.00">Route apis</text>
+</g>
+<g id="clust3" class="cluster" data-name="cluster_schema">
+
+<path fill="none" stroke="#000000" d="M479.94,-135C479.94,-135 1016.94,-135 1016.94,-135 1022.94,-135 1028.94,-141 1028.94,-147 1028.94,-147 1028.94,-422 1028.94,-422 1028.94,-428 1022.94,-434 1016.94,-434 1016.94,-434 479.94,-434 479.94,-434 473.94,-434 467.94,-428 467.94,-422 467.94,-422 467.94,-147 467.94,-147 467.94,-141 473.94,-135 479.94,-135"/>
+<text text-anchor="middle" x="507.59" y="-412" font-family="Helvetica,Arial,sans-serif" font-size="20.00">Schema</text>
+</g>
+<g id="clust4" class="cluster" data-name="cluster_module_app">
+
+<path fill="none" stroke="#000000" d="M487.94,-143C487.94,-143 1008.94,-143 1008.94,-143 1014.94,-143 1020.94,-149 1020.94,-155 1020.94,-155 1020.94,-382 1020.94,-382 1020.94,-388 1014.94,-394 1008.94,-394 1008.94,-394 487.94,-394 487.94,-394 481.94,-394 475.94,-388 475.94,-382 475.94,-382 475.94,-155 475.94,-155 475.94,-149 481.94,-143 487.94,-143"/>
+<text text-anchor="middle" x="498.38" y="-372" font-family="Helvetica,Arial,sans-serif" font-size="20.00">app</text>
+</g>
+<g id="clust5" class="cluster" data-name="cluster_module_app_schemas">
+
+<path fill="none" stroke="#000000" d="M495.94,-151C495.94,-151 1000.94,-151 1000.94,-151 1006.94,-151 1012.94,-157 1012.94,-163 1012.94,-163 1012.94,-342 1012.94,-342 1012.94,-348 1006.94,-354 1000.94,-354 1000.94,-354 495.94,-354 495.94,-354 489.94,-354 483.94,-348 483.94,-342 483.94,-342 483.94,-163 483.94,-163 483.94,-157 489.94,-151 495.94,-151"/>
+<text text-anchor="middle" x="525.81" y="-332" font-family="Helvetica,Arial,sans-serif" font-size="20.00">schemas</text>
+</g>
+<!-- tag__Users --><g id="edge1" class="edge" data-name="tag__Users-&gt;list_users__users_getuserdata" data-comment="tag__Users">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M98.24,-224.06C137.06,-219.62 211.3,-211.12 260.37,-205.51"/>
+<polygon fill="blue" stroke="blue" points="260.61,-209 270.15,-204.39 259.81,-202.05 260.61,-209"/>
+</g>
+<g id="node1" class="node" pointer-events="visible" data-name="tag__Users">
+
+<polygon fill="none" stroke="black" points="44.54,-209 44.54,-245 98.54,-245 98.54,-209 44.54,-209"/>
+<text text-anchor="middle" x="71.54" y="-222.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">Users</text>
+</g>
+<!-- list_users__users_getuserdata -->
+<g id="node3" class="node" pointer-events="visible" data-name="list_users__users_getuserdata">
+
+<polygon fill="none" stroke="black" points="271.29,-182 271.29,-218 347.73,-218 347.73,-182 271.29,-182"/>
+<text text-anchor="middle" x="309.51" y="-195.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">list_users</text>
+</g>
+<!-- tag__Users&#45;&gt;list_users__users_getuserdata --><g id="edge3" class="edge" data-name="tag__Users-&gt;create_note__users_notes_post" data-comment="tag__Users-&gt;list_users__users_getuserdata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M93.55,-244.93C122.46,-268.86 176.87,-311.33 229.09,-338 236.93,-342.01 245.5,-345.63 254.01,-348.82"/>
+<polygon fill="blue" stroke="blue" points="252.69,-352.06 263.28,-352.12 255.04,-345.47 252.69,-352.06"/>
+</g>
+
+<!-- create_note__users_notes_post -->
+<g id="node4" class="node" pointer-events="visible" data-name="create_note__users_notes_post">
+
+<polygon fill="none" stroke="black" points="264.65,-347 264.65,-383 354.38,-383 354.38,-347 264.65,-347"/>
+<text text-anchor="middle" x="309.51" y="-360.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">create_note</text>
+</g>
+<!-- tag__Users&#45;&gt;create_note__users_notes_post --><g id="edge5" class="edge" data-name="tag__Users-&gt;get_note_from_user__users_notes" data-comment="tag__Users-&gt;create_note__users_notes_post">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M98.54,-236.44C129.56,-247.68 183.03,-266.93 229.09,-283 234.15,-284.77 239.4,-286.58 244.67,-288.4"/>
+<polygon fill="blue" stroke="blue" points="243.47,-291.68 254.06,-291.62 245.74,-285.06 243.47,-291.68"/>
+</g>
+
+<!-- get_note_from_user__users_notes -->
+<g id="node5" class="node" pointer-events="visible" data-name="get_note_from_user__users_notes">
+
+<polygon fill="none" stroke="black" points="237.09,-292 237.09,-328 381.94,-328 381.94,-292 237.09,-292"/>
+<text text-anchor="middle" x="309.51" y="-305.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">get_note_from_user</text>
+</g>
+<!-- tag__Users&#45;&gt;get_note_from_user__users_notes --><g id="edge7" class="edge" data-name="tag__Users-&gt;get_categorys__users_notes_category" data-comment="tag__Users-&gt;get_note_from_user__users_notes">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M84.82,-244.96C108.75,-278.69 164.94,-351.77 229.09,-393 234.58,-396.53 240.59,-399.65 246.76,-402.4"/>
+<polygon fill="blue" stroke="blue" points="245.25,-405.57 255.84,-406.11 247.9,-399.09 245.25,-405.57"/>
+</g>
+
+<!-- get_categorys__users_notes_category -->
+<g id="node6" class="node" pointer-events="visible" data-name="get_categorys__users_notes_category">
+
+<polygon fill="none" stroke="black" points="257.09,-402 257.09,-438 361.94,-438 361.94,-402 257.09,-402"/>
+<text text-anchor="middle" x="309.51" y="-415.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">get_categorys</text>
+</g>
+<!-- tag__Users&#45;&gt;get_categorys__users_notes_category --><g id="edge9" class="edge" data-name="tag__Users-&gt;get_notes_category__users_notes_by-category_{category_desc}" data-comment="tag__Users-&gt;get_categorys__users_notes_category">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M98.24,-218.07C133.45,-205.84 197.79,-183.48 246.06,-166.7"/>
+<polygon fill="blue" stroke="blue" points="246.99,-170.08 255.29,-163.49 244.7,-163.47 246.99,-170.08"/>
+</g>
+
+<!-- get_notes_category__users_notes_by&#45;category_{category_desc} -->
+<g id="node7" class="node" pointer-events="visible" data-name="get_notes_category__users_notes_by-category_{category_desc}">
+
+<polygon fill="none" stroke="black" points="239.31,-127 239.31,-163 379.71,-163 379.71,-127 239.31,-127"/>
+<text text-anchor="middle" x="309.51" y="-140.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">get_notes_category</text>
+</g>
+<!-- tag__Users&#45;&gt;get_notes_category__users_notes_by&#45;category_{category_desc} --><g id="edge11" class="edge" data-name="tag__Users-&gt;get_note_by_id__users_notes_{id}" data-comment="tag__Users-&gt;get_notes_category__users_notes_by-category_{category_desc}">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M98.24,-230.05C132.19,-234.08 193.24,-241.32 240.85,-246.97"/>
+<polygon fill="blue" stroke="blue" points="240.17,-250.42 250.51,-248.12 241,-243.46 240.17,-250.42"/>
+</g>
+
+<!-- get_note_by_id__users_notes_{id} -->
+<g id="node8" class="node" pointer-events="visible" data-name="get_note_by_id__users_notes_{id}">
+
+<polygon fill="none" stroke="black" points="251.74,-237 251.74,-273 367.28,-273 367.28,-237 251.74,-237"/>
+<text text-anchor="middle" x="309.51" y="-250.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">get_note_by_id</text>
+</g><!-- register_user__auth_register -->
+<!-- tag__Users&#45;&gt;get_note_by_id__users_notes_{id} -->
+<!-- tag__Authentication&#45;&gt;register_user__auth_register -->
+<!-- tag__Authentication --><g id="edge13" class="edge" data-name="tag__Authentication-&gt;register_user__auth_register" data-comment="tag__Authentication">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M124.33,-154C161.41,-141.12 211.38,-123.75 249.92,-110.36"/>
+<polygon fill="blue" stroke="blue" points="250.74,-113.78 259.04,-107.19 248.44,-107.17 250.74,-113.78"/>
+</g>
+<g id="node2" class="node" pointer-events="visible" data-name="tag__Authentication">
+
+<polygon fill="none" stroke="black" points="16,-154 16,-190 127.09,-190 127.09,-154 16,-154"/>
+<text text-anchor="middle" x="71.54" y="-167.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">Authentication</text>
+</g><!-- login__auth_login -->
+<g id="node9" class="node" pointer-events="visible" data-name="register_user__auth_register" data-comment="login__auth_login">
+
+<polygon fill="none" stroke="black" points="260.2,-72 260.2,-108 358.83,-108 358.83,-72 260.2,-72"/>
+<text text-anchor="middle" x="309.51" y="-85.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">register_user</text>
+</g><g id="node10" class="node" pointer-events="visible" data-name="login__auth_login">
+
+<polygon fill="none" stroke="black" points="282.51,-17 282.51,-53 336.51,-53 336.51,-17 282.51,-17"/>
+<text text-anchor="middle" x="309.51" y="-30.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">login</text>
+</g>
+<!-- tag__Authentication&#45;&gt;login__auth_login -->
+<g id="edge15" class="edge" data-name="tag__Authentication-&gt;login__auth_login">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M94.15,-154.11C123.3,-130.66 177.51,-89.43 229.09,-63 242.64,-56.05 258.31,-50.13 272.13,-45.54"/>
+<polygon fill="blue" stroke="blue" points="272.84,-48.98 281.31,-42.61 270.72,-42.31 272.84,-48.98"/>
+</g>
+<!-- app.schemas.UserOut -->
+<g id="node11" class="node" pointer-events="visible" data-name="app.schemas.UserOut">
+
+<polygon fill="white" stroke="none" points="609.44,-204.5 609.44,-231.5 679.44,-231.5 679.44,-204.5 609.44,-204.5"/>
+<polygon fill="#009485" stroke="none" points="612.44,-207 612.44,-228 676.44,-228 676.44,-207 612.44,-207"/>
+<text text-anchor="start" x="613.33" y="-213.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<text text-anchor="start" x="617.33" y="-213.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00" fill="white">UserOut</text>
+<text text-anchor="start" x="671.54" y="-213.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<polygon fill="none" stroke="black" points="609.44,-204.5 609.44,-231.5 679.44,-231.5 679.44,-204.5 609.44,-204.5"/>
+</g>
+<!-- list_users__users_getuserdata&#45;&gt;app.schemas.UserOut -->
+<g id="edge2" class="edge" data-name="list_users__users_getuserdata-&gt;app.schemas.UserOut:PK" data-comment="list_users__users_getuserdata-&gt;app.schemas.UserOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M347.73,-201.9C410.32,-205.1 536.2,-211.52 601.7,-214.87"/>
+<polygon fill="blue" stroke="blue" points="601.14,-218.34 611.3,-215.36 601.49,-211.35 601.14,-218.34"/>
+</g>
+<!-- app.schemas.NotesOut -->
+<g id="node12" class="node" pointer-events="visible" data-name="app.schemas.NotesOut">
+
+<polygon fill="white" stroke="none" points="491.94,-250 491.94,-314 796.94,-314 796.94,-250 491.94,-250"/>
+<polygon fill="#009485" stroke="none" points="495.44,-290 495.44,-311 794.44,-311 794.44,-290 495.44,-290"/>
+<text text-anchor="start" x="610.27" y="-296.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<text text-anchor="start" x="614.27" y="-296.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00" fill="white">NotesOut</text>
+<text text-anchor="start" x="675.6" y="-296.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<text text-anchor="start" x="502.97" y="-265.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00">  category: UnionType[CategoryOut, No..    </text>
+<polygon fill="none" stroke="black" points="491.94,-250 491.94,-314 796.94,-314 796.94,-250 491.94,-250"/>
+</g>
+<!-- create_note__users_notes_post&#45;&gt;app.schemas.NotesOut -->
+<g id="edge4" class="edge" data-name="create_note__users_notes_post-&gt;app.schemas.NotesOut:PK" data-comment="create_note__users_notes_post-&gt;app.schemas.NotesOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M354.23,-350.21C365.84,-346.26 378.37,-341.98 389.94,-338 419.31,-327.89 426.67,-325.42 455.94,-315 468.8,-310.42 473.78,-304.83 483.15,-302.33"/>
+<polygon fill="blue" stroke="blue" points="483.41,-305.82 492.93,-301.18 482.59,-298.87 483.41,-305.82"/>
+</g>
+<!-- get_note_from_user__users_notes&#45;&gt;app.schemas.NotesOut -->
+<g id="edge6" class="edge" data-name="get_note_from_user__users_notes-&gt;app.schemas.NotesOut:PK" data-comment="get_note_from_user__users_notes-&gt;app.schemas.NotesOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M381.66,-304.9C412.29,-303.07 448.85,-301.38 482.97,-301.06"/>
+<polygon fill="blue" stroke="blue" points="482.94,-304.56 492.92,-301.01 482.91,-297.56 482.94,-304.56"/>
+</g>
+<!-- app.schemas.CategoryOut -->
+<g id="node13" class="node" pointer-events="visible" data-name="app.schemas.CategoryOut">
+
+<polygon fill="white" stroke="none" points="906.94,-257.5 906.94,-284.5 1004.94,-284.5 1004.94,-257.5 906.94,-257.5"/>
+<polygon fill="#009485" stroke="none" points="909.94,-260 909.94,-281 1001.94,-281 1001.94,-260 909.94,-260"/>
+<text text-anchor="start" x="910.61" y="-266.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<text text-anchor="start" x="914.61" y="-266.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00" fill="white">CategoryOut</text>
+<text text-anchor="start" x="997.26" y="-266.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<polygon fill="none" stroke="black" points="906.94,-257.5 906.94,-284.5 1004.94,-284.5 1004.94,-257.5 906.94,-257.5"/>
+</g>
+<!-- get_categorys__users_notes_category&#45;&gt;app.schemas.CategoryOut -->
+<g id="edge8" class="edge" data-name="get_categorys__users_notes_category-&gt;app.schemas.CategoryOut:PK" data-comment="get_categorys__users_notes_category-&gt;app.schemas.CategoryOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M361.93,-415.24C389.49,-413.08 424.04,-411 454.94,-411 454.94,-411 454.94,-411 833.94,-411 896.2,-411 933.36,-330.83 947.88,-291.4"/>
+<polygon fill="blue" stroke="blue" points="951.16,-292.62 951.16,-282.03 944.55,-290.31 951.16,-292.62"/>
+</g>
+<!-- get_notes_category__users_notes_by&#45;category_{category_desc}&#45;&gt;app.schemas.CategoryOut -->
+<g id="edge10" class="edge" data-name="get_notes_category__users_notes_by-category_{category_desc}-&gt;app.schemas.CategoryOut:PK" data-comment="get_notes_category__users_notes_by-category_{category_desc}-&gt;app.schemas.CategoryOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M379.44,-135.58C403.3,-133.05 430.25,-131 454.94,-131 454.94,-131 454.94,-131 833.94,-131 895.85,-131 933.3,-210.43 947.9,-249.2"/>
+<polygon fill="blue" stroke="blue" points="944.59,-250.34 951.25,-258.58 951.18,-247.98 944.59,-250.34"/>
+</g>
+<!-- get_note_by_id__users_notes_{id}&#45;&gt;app.schemas.NotesOut -->
+<g id="edge12" class="edge" data-name="get_note_by_id__users_notes_{id}-&gt;app.schemas.NotesOut:PK" data-comment="get_note_by_id__users_notes_{id}-&gt;app.schemas.NotesOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M367.18,-268.87C394.09,-275.5 426.69,-283.58 455.94,-291 468.66,-294.23 473.96,-298.17 483.08,-299.99"/>
+<polygon fill="blue" stroke="blue" points="482.66,-303.47 492.93,-300.87 483.28,-296.5 482.66,-303.47"/>
+</g>
+<!-- register_user__auth_register&#45;&gt;app.schemas.UserOut -->
+<g id="edge14" class="edge" data-name="register_user__auth_register-&gt;app.schemas.UserOut:PK" data-comment="register_user__auth_register-&gt;app.schemas.UserOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M358.73,-103.12C369.43,-107.08 380.41,-112 389.94,-118 431.42,-144.13 423.84,-174.58 467.94,-196 510.03,-216.45 564.25,-219.99 601.21,-219.51"/>
+<polygon fill="blue" stroke="blue" points="601.15,-223.01 611.06,-219.26 600.97,-216.01 601.15,-223.01"/>
+</g>
+<!-- app.schemas.Token -->
+<g id="node14" class="node" pointer-events="visible" data-name="app.schemas.Token">
+
+<polygon fill="white" stroke="none" points="616.44,-159.5 616.44,-186.5 672.44,-186.5 672.44,-159.5 616.44,-159.5"/>
+<polygon fill="#009485" stroke="none" points="619.44,-162 619.44,-183 669.44,-183 669.44,-162 619.44,-162"/>
+<text text-anchor="start" x="620" y="-168.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<text text-anchor="start" x="624" y="-168.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00" fill="white">Token</text>
+<text text-anchor="start" x="664.88" y="-168.6" font-family="Helvetica,Arial,sans-serif" font-size="16.00"> </text>
+<polygon fill="none" stroke="black" points="616.44,-159.5 616.44,-186.5 672.44,-186.5 672.44,-159.5 616.44,-159.5"/>
+</g>
+
+<!-- login__auth_login&#45;&gt;app.schemas.Token -->
+
+<g id="edge16" class="edge" data-name="login__auth_login-&gt;app.schemas.Token:PK" data-comment="login__auth_login-&gt;app.schemas.Token">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M336.43,-43.64C352.03,-48.97 372.23,-56.08 389.94,-63 470.45,-94.46 563.41,-135.73 611.27,-157.34"/>
+<polygon fill="blue" stroke="blue" points="609.67,-160.46 620.22,-161.4 612.56,-154.08 609.67,-160.46"/>
+</g>
+
+<!-- app.schemas.NotesOut&#45;&gt;app.schemas.CategoryOut -->
+
+<g id="edge17" class="edge" data-name="app.schemas.NotesOut:fcategory-&gt;app.schemas.CategoryOut:PK" data-comment="app.schemas.NotesOut-&gt;app.schemas.CategoryOut">
+
+<path fill="none" stroke="rgb(0, 0, 255)" d="M807.4,-270C843.03,-270 881.52,-270 910.25,-270"/>
+<polygon fill="none" stroke="blue" points="807.44,-270 801.44,-274 795.44,-270 801.44,-266 807.44,-270"/>
+</g>
+
+</g>
+</svg>

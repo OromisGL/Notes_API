@@ -1,0 +1,145 @@
+
+        digraph world {
+            pad="0.5"
+            fontname="Helvetica,Arial,sans-serif"
+            node [fontname="Helvetica,Arial,sans-serif"]
+            edge [
+                fontname="Helvetica,Arial,sans-serif"
+                color="blue"
+            ]
+            graph [
+                rankdir = "LR"
+            ];
+            node [
+                fontsize = "16"
+            ];
+
+            subgraph cluster_tags { 
+                color = "#666"
+                label = "Tags"
+                labeljust = "l"
+                style = "rounded";
+                fontsize = "20"
+                
+            "tag__Users" [
+                label = "    Users    "
+                shape = "record"
+            ];
+
+            "tag__Authentication" [
+                label = "    Authentication    "
+                shape = "record"
+            ];
+            }
+
+            subgraph cluster_router {
+                color = "#666"
+                label = "Route apis"
+                labeljust = "l"
+                style = "rounded";
+                fontsize = "20"
+                
+            "list_users__users_getuserdata" [
+                label = "    list_users    "
+                shape = "record"
+            ];
+
+            "create_note__users_notes_post" [
+                label = "    create_note    "
+                shape = "record"
+            ];
+
+            "get_note_from_user__users_notes" [
+                label = "    get_note_from_user    "
+                shape = "record"
+            ];
+
+            "get_categorys__users_notes_category" [
+                label = "    get_categorys    "
+                shape = "record"
+            ];
+
+            "get_notes_category__users_notes_by-category_{category_desc}" [
+                label = "    get_notes_category    "
+                shape = "record"
+            ];
+
+            "get_note_by_id__users_notes_{id}" [
+                label = "    get_note_by_id    "
+                shape = "record"
+            ];
+
+            "register_user__auth_register" [
+                label = "    register_user    "
+                shape = "record"
+            ];
+
+            "login__auth_login" [
+                label = "    login    "
+                shape = "record"
+            ];
+            }
+
+            subgraph cluster_schema {
+                color = "#666"
+                label = "Schema"
+                labeljust = "l"
+                fontsize = "20"
+                style = "rounded";
+                    
+            subgraph cluster_module_app {
+                color = "#666"
+                label = "app"
+                labeljust = "l"
+                
+                
+                
+            subgraph cluster_module_app_schemas {
+                color = "#666"
+                label = "schemas"
+                labeljust = "l"
+                
+                
+                "app.schemas.UserOut" [
+                    label = <<table border="1" cellborder="0" cellpadding="0" bgcolor="white"> <tr><td cellpadding="1.5" bgcolor="#009485" align="center" colspan="1" port="PK"> <font color="white">UserOut</font> </td> </tr>    </table>>
+                    shape = "plain"
+                ];
+
+                "app.schemas.NotesOut" [
+                    label = <<table border="1" cellborder="0" cellpadding="0" bgcolor="white"> <tr><td cellpadding="1.5" bgcolor="#009485" align="center" colspan="1" port="PK"> <font color="white">NotesOut</font> </td> </tr> <tr><td align="left" port="fcategory" cellpadding="8"><font>  category: UnionType[CategoryOut, No..    </font></td></tr>   </table>>
+                    shape = "plain"
+                ];
+
+                "app.schemas.CategoryOut" [
+                    label = <<table border="1" cellborder="0" cellpadding="0" bgcolor="white"> <tr><td cellpadding="1.5" bgcolor="#009485" align="center" colspan="1" port="PK"> <font color="white">CategoryOut</font> </td> </tr>    </table>>
+                    shape = "plain"
+                ];
+
+                "app.schemas.Token" [
+                    label = <<table border="1" cellborder="0" cellpadding="0" bgcolor="white"> <tr><td cellpadding="1.5" bgcolor="#009485" align="center" colspan="1" port="PK"> <font color="white">Token</font> </td> </tr>    </table>>
+                    shape = "plain"
+                ];
+                
+            }
+            }
+            }
+
+            "tag__Users" -> "list_users__users_getuserdata" [ style = "solid", label = "", minlen=3 ];
+"list_users__users_getuserdata" -> "app.schemas.UserOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Users" -> "create_note__users_notes_post" [ style = "solid", label = "", minlen=3 ];
+"create_note__users_notes_post" -> "app.schemas.NotesOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Users" -> "get_note_from_user__users_notes" [ style = "solid", label = "", minlen=3 ];
+"get_note_from_user__users_notes" -> "app.schemas.NotesOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Users" -> "get_categorys__users_notes_category" [ style = "solid", label = "", minlen=3 ];
+"get_categorys__users_notes_category" -> "app.schemas.CategoryOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Users" -> "get_notes_category__users_notes_by-category_{category_desc}" [ style = "solid", label = "", minlen=3 ];
+"get_notes_category__users_notes_by-category_{category_desc}" -> "app.schemas.CategoryOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Users" -> "get_note_by_id__users_notes_{id}" [ style = "solid", label = "", minlen=3 ];
+"get_note_by_id__users_notes_{id}" -> "app.schemas.NotesOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Authentication" -> "register_user__auth_register" [ style = "solid", label = "", minlen=3 ];
+"register_user__auth_register" -> "app.schemas.UserOut":PK [ style = "solid", label = "", minlen=3 ];
+"tag__Authentication" -> "login__auth_login" [ style = "solid", label = "", minlen=3 ];
+"login__auth_login" -> "app.schemas.Token":PK [ style = "solid", label = "", minlen=3 ];
+"app.schemas.NotesOut":fcategory -> "app.schemas.CategoryOut":PK [ style = "solid", arrowtail="odiamond", dir="back", minlen=3 ];
+            }
+        

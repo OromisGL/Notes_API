@@ -16,7 +16,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile   # hier liegt Ihr FastAPI-Dockerfile
+      dockerfile: Dockerfile   
     container_name: fastapi_app
     depends_on:
       - db

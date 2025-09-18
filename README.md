@@ -31,20 +31,20 @@ Notes/
 │
 ├── app/
 │   ├── __init__.py
-│   ├── auth_util.py           # Funktionen zur Validierung und Authentifizierung
+│   ├── auth_util.py           # Funktionen zur Validierung/Authentifizierung
 │   ├── main.py                # Einstiegspunkt für FastAPI
-│   ├── config.py              # Konfiguration (Datenbank-URL etc.)
+│   ├── config.py              # Konfiguration (Datenbank-URL)
 │   ├── database.py            # Datenbankverbindung und Session-Handling
-│   ├── models.py              # SQLAlchemy-Modelle (Tabellen-Definitionen)
+│   ├── models.py              # SQLAlchemy-Modelle (Tabellendefinitionen)
 │   ├── schemas.py             # Pydantic-Schemas (Request/Response-Validierung)
 │   ├── crud.py                # CRUD-Operationen (Funktionen für DB-Zugriffe)
 │   ├── private.pem            # Privater Hash 
 │   ├── public.pem             # Öffentlicher Hash
 │   └── routers/               # API-Routen modular organisiert
 │       ├── __init__.py
-│       ├── users.py           # Beispiel-Router für User-Endpunkte
-│       └── auth.py            # Beispiel-Router für User-Endpunkte
-├── requirements.txt           # Abhängigkeiten (FastAPI, SQLAlchemy, psycopg2 etc.) 
+│       ├── users.py           # Router für Datenbankoperationen
+│       └── auth.py            # Router für User Authentifizierung
+├── requirements.txt           # Abhängigkeiten 
 ├── docker-compose.yaml        # Definition der Docker services
 ├── Dokerfile                  # Commands für den Docker container 
 ```
