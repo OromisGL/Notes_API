@@ -7,7 +7,7 @@ app = FastAPI()
 router = APIRouter()
 
 # Creating Tables in the Database
-@app.on_event("startup")
+@app.lifespan("startup")
 def _startup():
     Base.metadata.create_all(bind=engine)
 
